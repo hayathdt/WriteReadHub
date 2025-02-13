@@ -41,9 +41,43 @@ Cette plateforme permet aux utilisateurs de lire et d'écrire des histoires. Les
 
 ### **Déploiement**
 
-- Front-end :
-- Back-end :
-- Base de données :
+- Front-end : Firebase Hosting
+- Back-end : Firebase Cloud Functions
+- Base de données : Firebase Firestore
+
+## Structure du projet
+
+```
+.
+├── backend/
+│   ├── firestore.rules          # Règles de sécurité Firestore
+│   ├── storage.rules            # Règles de sécurité Storage
+│   └── functions/               # Cloud Functions
+│       └── firebase.json        # Configuration des fonctions
+├── frontend/
+│   ├── auth/                    # Authentification
+│   │   ├── auth.css
+│   │   ├── auth.js
+│   │   ├── login.html
+│   │   └── register.html
+│   ├── social/                  # Réseau social
+│   │   ├── profile.html
+│   │   ├── social.css
+│   │   └── social.js
+│   ├── stories/                 # Gestion des histoires
+│   │   ├── editor.html
+│   │   ├── list.html
+│   │   ├── stories.css
+│   │   └── stories.js
+│   └── shared/                  # Code commun
+│       ├── firebase-init.js     # Configuration Firebase
+│       └── api.js               # API client
+├── postman/                     # Tests API
+│   ├── collection.json
+│   └── environment.json
+├── .env.example                 # Variables d'environnement
+└── firebase.json                # Configuration globale Firebase
+```
 
 ## 📦 Installation
 
@@ -52,13 +86,11 @@ Cette plateforme permet aux utilisateurs de lire et d'écrire des histoires. Les
 - Node.js installé sur votre machine
 - Un compte Firebase pour la base de données
 - Un compte Firebase pour l'authentification
+- Firebase CLI installé globalement : `npm install -g firebase-tools`
 
-### **Cloner le projet**
+### **Variables d'environnement**
 
-```bash
-git clone https://github.com/hayathdt/Plateforme-lecture.git
-cd Plateforme-lecture
-```
+Le fichier `.env.example` à la racine du projet montre les variables d'environnement nécessaires. Vous devez créer un fichier `.env` et le remplir avec vos propres valeurs.
 
 ### **Installation du back-end**
 
