@@ -14,3 +14,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+
+// Test d'écriture
+setDoc(doc(db, "test", "doc"), {
+  message: "Connexion réussie !",
+  timestamp: new Date(),
+}).catch((error) => console.error("Erreur Firestore:", error));
