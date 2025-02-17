@@ -115,7 +115,7 @@ npm run dev
 ### **Installation du front-end**
 
 ```bash
-cd ../client
+cd ../frontend
 npm install
 npm run dev
 ```
