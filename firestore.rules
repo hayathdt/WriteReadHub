@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Example: Only allow authenticated users to read and write to their own documents
+    match /users/{userId}/{documents=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /public/{documents=**} {
+      allow read: if true; // Example, allow public read access
+    }
+    // Add more specific rules for other collections as needed.
+  }
+}

@@ -24,6 +24,12 @@
 - [x] Correction du point d'entrée index.html
 - [x] Tests de connexion Firebase réussis
 
+## Sécurité & Déploiement (Firebase)
+
+- [x] Renforcement des règles de sécurité Firestore (exigence d'authentification)
+- [x] Suppression du déploiement Remote Config (inutilisé)
+- [x] Correction de la structure de `firebase.json`
+
 ## Plan détaillé des prochaines étapes
 
 ### Phase 2 - Authentification avancée
