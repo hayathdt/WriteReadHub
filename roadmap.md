@@ -19,6 +19,10 @@
 
 - [x] Configuration TypeScript et Postman pour les tests
 - [x] Variables d'environnement sécurisées (.env.example)
+- [x] Création du fichier .env fonctionnel
+- [x] Configuration du serveur de développement
+- [x] Correction du point d'entrée index.html
+- [x] Tests de connexion Firebase réussis
 
 ## Plan détaillé des prochaines étapes
 
