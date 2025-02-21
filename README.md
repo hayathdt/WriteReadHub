@@ -147,4 +147,4 @@ npm run dev
 
 ## 📜 Licence
 
-Ce projet est sous licence [MIT License](LICENSE).
+Ce projet est sous licence 
