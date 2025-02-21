@@ -62,3 +62,9 @@
 - [ ] Commentaires hiérarchiques
 - [ ] Notifications en temps réel
 - [ ] Flux d'activité personnalisé
+
+## [En cours] - UI/UX Improvements
+
+- [x] Création d'une palette de couleurs thématique "bibliothèque vintage"
+- [x] Refonte des pages d'authentification avec nouvelle charte graphique
+- [ ] Appliquer la nouvelle palette aux autres sections (social, stories)
