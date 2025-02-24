@@ -19,7 +19,48 @@
 
         <button type="submit">Login</button>
       </form>
+      <button id="googleSignIn">Sign in with Google</button>
     </div>
-    <script src="auth.js"></script>
+    <script type="module">
+      import { signInWithGoogle } from "./auth.js";
+      import { signInWithEmailAndPassword } from "firebase/auth";
+      import { auth } from "../shared/firebase-init.js";
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = e.target.email.value;
+          const password = e.target.password.value;
+
+          try {
+            const userCredential = await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+            // Access the user object
+            const user = userCredential.user;
+            console.log("User object:", user);
+            alert("Connexion réussie! Email: " + user.email);
+            window.location.href = "/index.html"; // Rediriger vers la page d'accueil
+          } catch (error) {
+            console.error("Erreur de connexion:", error);
+            alert(error.message);
+          }
+        });
+
+      document
+        .getElementById("googleSignIn")
+        .addEventListener("click", async () => {
+          try {
+            await signInWithGoogle();
+            window.location.href = "/index.html"; // Rediriger vers la page d'accueil
+          } catch (error) {
+            console.error("Erreur Google Auth:", error);
+            alert(error.message);
+          }
+        });
+    </script>
   </body>
 </html>

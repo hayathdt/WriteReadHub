@@ -11,26 +11,49 @@
     <div class="container">
       <h1>Register</h1>
       <form id="registerForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
 
-        <label for="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-          required
-        />
-
         <button type="submit">Register</button>
       </form>
+      <button id="googleSignUp">Sign up with Google</button>
     </div>
-    <script src="auth.js"></script>
+    <script type="module">
+      import { registerUser, signInWithGoogle } from "./auth.js";
+
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = e.target.email.value;
+          const password = e.target.password.value;
+
+          try {
+            await registerUser(email, password);
+            alert(
+              "Inscription réussie ! Vous allez être redirigé vers la page de connexion."
+            );
+            window.location.href = "/auth/login.html"; // Rediriger vers la page de connexion
+          } catch (error) {
+            console.error("Erreur d'inscription:", error);
+            alert(error.message);
+          }
+        });
+
+      document
+        .getElementById("googleSignUp")
+        .addEventListener("click", async () => {
+          try {
+            await signInWithGoogle();
+            window.location.href = "/index.html"; // Rediriger vers la page d'accueil après une connexion réussie
+          } catch (error) {
+            console.error("Erreur Google Auth:", error);
+            alert(error.message);
+          }
+        });
+    </script>
   </body>
 </html>
